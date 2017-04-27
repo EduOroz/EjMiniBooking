@@ -12,6 +12,10 @@
 		B6489B981EB1FCCF00836060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6489B961EB1FCCF00836060 /* Main.storyboard */; };
 		B6489B9A1EB1FCCF00836060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6489B991EB1FCCF00836060 /* Assets.xcassets */; };
 		B6489B9D1EB1FCCF00836060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6489B9B1EB1FCCF00836060 /* LaunchScreen.storyboard */; };
+		B6489BA51EB1FD6800836060 /* TVCMisReservas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BA41EB1FD6800836060 /* TVCMisReservas.swift */; };
+		B6489BA71EB1FD9800836060 /* TVCCatalogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */; };
+		B6489BA91EB1FDD400836060 /* VCReservaDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */; };
+		B6489BAB1EB1FDF500836060 /* VCFormularioReserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		B6489B991EB1FCCF00836060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6489B9C1EB1FCCF00836060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6489B9E1EB1FCCF00836060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6489BA41EB1FD6800836060 /* TVCMisReservas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCMisReservas.swift; sourceTree = "<group>"; };
+		B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCCatalogo.swift; sourceTree = "<group>"; };
+		B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCReservaDetalle.swift; sourceTree = "<group>"; };
+		B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCFormularioReserva.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,10 @@
 				B6489B921EB1FCCF00836060 /* AppDelegate.swift */,
 				B6489B941EB1FCCF00836060 /* ViewController.swift */,
 				B6489B961EB1FCCF00836060 /* Main.storyboard */,
+				B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */,
+				B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */,
+				B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */,
+				B6489BA41EB1FD6800836060 /* TVCMisReservas.swift */,
 				B6489B991EB1FCCF00836060 /* Assets.xcassets */,
 				B6489B9B1EB1FCCF00836060 /* LaunchScreen.storyboard */,
 				B6489B9E1EB1FCCF00836060 /* Info.plist */,
@@ -137,7 +149,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6489B951EB1FCCF00836060 /* ViewController.swift in Sources */,
+				B6489BAB1EB1FDF500836060 /* VCFormularioReserva.swift in Sources */,
+				B6489BA91EB1FDD400836060 /* VCReservaDetalle.swift in Sources */,
 				B6489B931EB1FCCF00836060 /* AppDelegate.swift in Sources */,
+				B6489BA51EB1FD6800836060 /* TVCMisReservas.swift in Sources */,
+				B6489BA71EB1FD9800836060 /* TVCCatalogo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
