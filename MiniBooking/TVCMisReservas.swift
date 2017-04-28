@@ -10,6 +10,8 @@ import UIKit
 
 class TVCMisReservas: UITableViewController {
 
+    var usuario: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

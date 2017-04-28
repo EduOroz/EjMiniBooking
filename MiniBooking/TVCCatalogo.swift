@@ -9,7 +9,17 @@
 import UIKit
 
 class TVCCatalogo: UITableViewController {
+    
+    @IBOutlet var tablaCatalogo: UITableView!
+    var hoteles: [Hotel] =  []
+    var hotel: Hotel = Hotel()
 
+    var usuario: String = ""
+    var datosPlist: NSDictionary?
+    
+    //Definimos el espacio entre sectiones de 5 puntos
+    let cellSpacingHeight: CGFloat = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,8 +27,16 @@ class TVCCatalogo: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()        
         
+        //Recuperamos el usuario en el fichero Configuracion.plist
+        let pathPlist = Bundle.main.path(forResource: "Configuracion", ofType: "plist")
+        //Cogemos los contenidos del fichero
+        datosPlist = NSDictionary(contentsOfFile: pathPlist!)!
+        usuario = datosPlist?.value(forKey: "usuario") as! String
+        //print("El Usuario es: \(usuario)")
+        
+        //Recuperamos los hoteles en el servidor remoto
         let urlCompleto = "http://minionsdesapps.esy.es/apps/verHoteles.php"
         
         let objetoUrl = URL(string:urlCompleto)
@@ -27,34 +45,25 @@ class TVCCatalogo: UITableViewController {
                 print(error!)
             } else {
                 do{
-                    let json = try JSONSerialization.jsonObject(with: datos!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
+                    let json = try JSONSerialization.jsonObject(with: datos!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [Any]
                     print(json.description)
-                    /*let querySubJson = json["query"] as! [String:Any]
-                    //print(querySubJson)
-                    let pagesSubJson = querySubJson["pages"] as! [String:Any]
-                    //print(pagesSubJson)
-                    let pageId = pagesSubJson.keys
-                    let primerLlave = pageId.first!
-                    let idSubJson = pagesSubJson[primerLlave] as! [String:Any]
-                    //let idSubJson = pagesSubJson["23597"] as! [String:Any]
-                    //print(idSubJson)
-                    let extractStringHtml = idSubJson["extract"] as! String
-                    print(extractStringHtml)
+                    for jsonHotel in json {
+                        let jsonString = jsonHotel as! [String:Any]
+                        self.hotel = Hotel(json: jsonString)
+                        print(self.hotel.nombre)
+                        self.hoteles.append(self.hotel)
+                    }
+                    
                     DispatchQueue.main.sync(execute: {
-                        self.webView.loadHTMLString(extractStringHtml, baseURL: nil)
-                    })*/
+                        self.tablaCatalogo.reloadData()
+                    })
                 }catch {
                     
                     print("El Procesamiento del JSON tuvo un error")
-                    
                 }
-                
             }
-            
         }
-        
         tarea.resume()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,12 +75,16 @@ class TVCCatalogo: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return hoteles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 1
     }
 
     
@@ -79,10 +92,50 @@ class TVCCatalogo: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellCatalogo", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = hoteles[indexPath.section].nombre
+        cell.imageView?.image = UIImage.init(named: hoteles[indexPath.section].nombre_imagen)
+        
+        if (hoteles[indexPath.section].habitaciones_libres==0) {
+            cell.detailTextLabel?.text = "No Habitaciones libres!!"
+        } else {
+            cell.detailTextLabel?.text = "Habitaciones libres: \(hoteles[indexPath.section].habitaciones_libres)"
+        }
 
+        
+        // add border and color
+        cell.backgroundColor = UIColor.white
+        /*cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true*/
+        
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (hoteles[indexPath.section].habitaciones_libres==0){
+            mostrarAlerta(titulo: "No se puede reservar", texto:"Lo sentimos no hay habitaciones libres")
+        } else {
+            hotel = hoteles[indexPath.section]
+            performSegue(withIdentifier: "SegueFromCatalogoToFormulario", sender: nil)
+        }
+    }
+    
+    func mostrarAlerta (titulo:String, texto: String ){
+        //Creamos una alerta
+        let alerta = UIAlertController(title: titulo, message: texto, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let volver = UIAlertAction(title: "Volver", style: UIAlertActionStyle.default, handler: { alertAction in
+            ()
+            alerta.dismiss(animated: true, completion: nil)
+        })
+        
+        alerta.addAction(volver)
+        
+        //Mostramos la alerta en nuestra vista
+        self.present(alerta, animated: true, completion: nil)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -119,14 +172,21 @@ class TVCCatalogo: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier=="SegueFromCatalogoToFormulario" {
+        
+            let controller = segue.destination as! VCFormularioReserva
+            // Pass the selected object to the new view controller.
+            controller.hotel = hotel
+            controller.usuario = usuario
+        }
+        
     }
-    */
+    
 
 }

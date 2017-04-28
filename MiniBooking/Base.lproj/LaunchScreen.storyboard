@@ -23,35 +23,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keep-calm-y-disfruta-tus-vacaciones-7" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-SO-3kc">
-                                <rect key="frame" x="56" y="70" width="263" height="400"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="nrL-bl-k82"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wqm-rW-B2y">
-                                <rect key="frame" x="46" y="490" width="283" height="65"/>
+                                <rect key="frame" x="46" y="510" width="283" height="77"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disfruta al máximo de tus próximas vacaciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34p-KT-l2n">
-                                        <rect key="frame" x="0.0" y="0.0" width="283" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.46784436660000001" green="0.6387434555" blue="0.15206891719999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.88569735689999995" green="1" blue="0.90700703709999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entra y Reserva Ya" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPJ-rd-cdl">
-                                        <rect key="frame" x="0.0" y="32.5" width="283" height="32.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                        <color key="textColor" red="0.20191485300000001" green="0.74345549740000005" blue="0.21192260369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="38.5" width="283" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" red="0.91280198270000001" green="0.94644660390000002" blue="0.98952879579999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.91280198265352774" green="0.9464466038724193" blue="0.98952879581151831" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.26315555037910227" blue="0.66492146596858637" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wqm-rW-B2y" firstAttribute="top" secondItem="BOh-SO-3kc" secondAttribute="bottom" constant="20" id="J8U-ZL-TER"/>
-                            <constraint firstItem="BOh-SO-3kc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="56" id="V7k-ze-xut"/>
+                            <constraint firstItem="wqm-rW-B2y" firstAttribute="top" secondItem="BOh-SO-3kc" secondAttribute="bottom" constant="40" id="J8U-ZL-TER"/>
+                            <constraint firstItem="BOh-SO-3kc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="V7k-ze-xut"/>
                             <constraint firstItem="wqm-rW-B2y" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="VKP-uy-er5"/>
-                            <constraint firstAttribute="trailing" secondItem="BOh-SO-3kc" secondAttribute="trailing" constant="56" id="bHN-kh-Oqj"/>
+                            <constraint firstAttribute="trailing" secondItem="BOh-SO-3kc" secondAttribute="trailing" id="bHN-kh-Oqj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wqm-rW-B2y" secondAttribute="trailing" constant="30" id="v5b-kT-oyl"/>
                             <constraint firstItem="BOh-SO-3kc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="veQ-go-mBf"/>
                         </constraints>

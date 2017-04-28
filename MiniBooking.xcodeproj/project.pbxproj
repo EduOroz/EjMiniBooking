@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6268D801EB31BD400BA094D /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6268D7F1EB31BD300BA094D /* Hotel.swift */; };
+		B6268D841EB361EE00BA094D /* Configuracion.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6268D831EB361EE00BA094D /* Configuracion.plist */; };
 		B6489B931EB1FCCF00836060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489B921EB1FCCF00836060 /* AppDelegate.swift */; };
 		B6489B951EB1FCCF00836060 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489B941EB1FCCF00836060 /* ViewController.swift */; };
 		B6489B981EB1FCCF00836060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6489B961EB1FCCF00836060 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6268D7F1EB31BD300BA094D /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
+		B6268D831EB361EE00BA094D /* Configuracion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuracion.plist; sourceTree = "<group>"; };
 		B6489B8F1EB1FCCF00836060 /* MiniBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6489B921EB1FCCF00836060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6489B941EB1FCCF00836060 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +71,9 @@
 				B6489B961EB1FCCF00836060 /* Main.storyboard */,
 				B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */,
 				B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */,
+				B6268D831EB361EE00BA094D /* Configuracion.plist */,
 				B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */,
+				B6268D7F1EB31BD300BA094D /* Hotel.swift */,
 				B6489BA41EB1FD6800836060 /* TVCMisReservas.swift */,
 				B6489B991EB1FCCF00836060 /* Assets.xcassets */,
 				B6489B9B1EB1FCCF00836060 /* LaunchScreen.storyboard */,
@@ -135,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6268D841EB361EE00BA094D /* Configuracion.plist in Resources */,
 				B6489B9D1EB1FCCF00836060 /* LaunchScreen.storyboard in Resources */,
 				B6489B9A1EB1FCCF00836060 /* Assets.xcassets in Resources */,
 				B6489B981EB1FCCF00836060 /* Main.storyboard in Resources */,
@@ -154,6 +161,7 @@
 				B6489B931EB1FCCF00836060 /* AppDelegate.swift in Sources */,
 				B6489BA51EB1FD6800836060 /* TVCMisReservas.swift in Sources */,
 				B6489BA71EB1FD9800836060 /* TVCCatalogo.swift in Sources */,
+				B6268D801EB31BD400BA094D /* Hotel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +323,7 @@
 				B6489BA31EB1FCCF00836060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
