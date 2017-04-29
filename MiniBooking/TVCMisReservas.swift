@@ -11,6 +11,14 @@ import UIKit
 class TVCMisReservas: UITableViewController {
 
     var usuario: String = ""
+    var datosPlist: NSDictionary?
+    
+    @IBOutlet var tablaMisReservas: UITableView!
+    var reservas: [Reserva] = []
+    var reserva: Reserva = Reserva()
+    
+    //Definimos el espacio entre sectiones de 5 puntos
+    let cellSpacingHeight: CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,43 @@ class TVCMisReservas: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //Recuperamos el usuario en el fichero Configuracion.plist
+        let pathPlist = Bundle.main.path(forResource: "Configuracion", ofType: "plist")
+        //Cogemos los contenidos del fichero
+        datosPlist = NSDictionary(contentsOfFile: pathPlist!)!
+        usuario = datosPlist?.value(forKey: "usuario") as! String
+        print("El Usuario es: \(usuario)")
+        
+        //Recuperamos las 2 ultimas reservas de la BD
+        let urlCompleto = "http://minionsdesapps.esy.es/apps/verReservas.php?&usuario=\(usuario)"
+        
+        let objetoUrl = URL(string:urlCompleto)
+        let tarea = URLSession.shared.dataTask(with: objetoUrl!) { (datos, respuesta, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: datos!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [Any]
+                    print(json.description)
+                    for jsonReserva in json {
+                        let jsonString = jsonReserva as! [String:Any]
+                        self.reserva = Reserva(json: jsonString)
+                        print(self.reserva.nombre_usuario)
+                        self.reservas.append(self.reserva)
+                    }
+                    
+                    DispatchQueue.main.sync(execute: {
+                         self.tablaMisReservas.reloadData()
+                    })
+                }catch {
+                    
+                    print("El Procesamiento del JSON tuvo un error")
+                }
+            }
+        }
+        tarea.resume()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,19 +76,24 @@ class TVCMisReservas: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return reservas.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 1
     }
 
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellMisReservas", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = reservas[indexPath.row].nombre_hotel
+        
 
         return cell
     }

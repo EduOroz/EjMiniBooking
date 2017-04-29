@@ -10,7 +10,7 @@ import UIKit
 
 class VCFormularioReserva: UIViewController {
 
-    @IBOutlet weak var tfNombre: UITextField!
+    @IBOutlet weak var lbNombre_hotel: UILabel!
     @IBOutlet weak var tfFecha: UITextField!
     @IBOutlet weak var tfNHabitaciones: UITextField!
     
@@ -21,9 +21,8 @@ class VCFormularioReserva: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tfNombre.text = hotel.nombre
+        lbNombre_hotel.text = hotel.nombre
         self.hideKeyboardWhenTappedAround()
-        tfNombre.allowsEditingTextAttributes = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,8 +32,8 @@ class VCFormularioReserva: UIViewController {
     
     @IBAction func onClickRegistrar(_ sender: UIButton) {
         
-        if (tfNombre.text==""){
-            mostrarAlerta(titulo: "Faltan Datos", texto: "Falta incluir el nombre del Hotel")
+        if (lbNombre_hotel.text==""){
+            mostrarAlerta(titulo: "Faltan Datos", texto: "Error al incluir el nombre del Hotel vuelva atrás")
         } else {
             if (tfFecha.text==""){
                 mostrarAlerta(titulo: "Faltan Datos", texto: "Falta indicar la fecha de la reserva")
@@ -77,7 +76,7 @@ class VCFormularioReserva: UIViewController {
                         print("Registro insertado en la BD")
                         self.mostrarAlertaInicio(titulo: "Reserva realizada", texto: "Se ha realizado la reserva solicitada")
                     } else {
-                        print("No se ha podido realizar la reserva, error sql \(string)")
+                        print("No se ha podido realizar la reserva, error sql \(String(describing: string))")
                     }
                 } else {
                     print("No se ha podido realizar la reserva, error en datos")

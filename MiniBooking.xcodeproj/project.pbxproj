@@ -18,6 +18,7 @@
 		B6489BA71EB1FD9800836060 /* TVCCatalogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */; };
 		B6489BA91EB1FDD400836060 /* VCReservaDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */; };
 		B6489BAB1EB1FDF500836060 /* VCFormularioReserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */; };
+		D27B7D1A1EB4914400E4EE9F /* Reserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B7D191EB4914400E4EE9F /* Reserva.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCCatalogo.swift; sourceTree = "<group>"; };
 		B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCReservaDetalle.swift; sourceTree = "<group>"; };
 		B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCFormularioReserva.swift; sourceTree = "<group>"; };
+		D27B7D191EB4914400E4EE9F /* Reserva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reserva.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				B6268D831EB361EE00BA094D /* Configuracion.plist */,
 				B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */,
 				B6268D7F1EB31BD300BA094D /* Hotel.swift */,
+				D27B7D191EB4914400E4EE9F /* Reserva.swift */,
 				B6489BA41EB1FD6800836060 /* TVCMisReservas.swift */,
 				B6489B991EB1FCCF00836060 /* Assets.xcassets */,
 				B6489B9B1EB1FCCF00836060 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27B7D1A1EB4914400E4EE9F /* Reserva.swift in Sources */,
 				B6489B951EB1FCCF00836060 /* ViewController.swift in Sources */,
 				B6489BAB1EB1FDF500836060 /* VCFormularioReserva.swift in Sources */,
 				B6489BA91EB1FDD400836060 /* VCReservaDetalle.swift in Sources */,

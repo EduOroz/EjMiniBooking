@@ -16,12 +16,18 @@ class ViewController: UIViewController {
     var usuario: String = ""
     var datosPlist: NSDictionary?
     
-    var hoteles: [Hotel] =  []
-    var hotel: Hotel = Hotel()
+    var reservas: [Reserva] = []
+    var reserva: Reserva = Reserva()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Configuramos las labels
+        self.lbReserva1.numberOfLines=0
+        self.lbReserva2.numberOfLines=0
+        self.lbReserva1.lineBreakMode = .byWordWrapping
+        self.lbReserva2.lineBreakMode = .byWordWrapping
         
         //Recuperamos el usuario en el fichero Configuracion.plist
         let pathPlist = Bundle.main.path(forResource: "Configuracion", ofType: "plist")
@@ -41,16 +47,16 @@ class ViewController: UIViewController {
                 do{
                     let json = try JSONSerialization.jsonObject(with: datos!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [Any]
                     print(json.description)
-                    for jsonHotel in json {
-                        let jsonString = jsonHotel as! [String:Any]
-                        self.hotel = Hotel(json: jsonString)
-                        print(self.hotel.nombre)
-                        self.hoteles.append(self.hotel)
+                    for jsonReserva in json {
+                        let jsonString = jsonReserva as! [String:Any]
+                        self.reserva = Reserva(json: jsonString)
+                        print(self.reserva.nombre_usuario)
+                        self.reservas.append(self.reserva)
                     }
                     
                     DispatchQueue.main.sync(execute: {
-                        self.lbReserva1.text = self.hoteles[0].nombre
-                        self.lbReserva2.text = self.hoteles[1].nombre
+                        self.lbReserva1.text = " Usuario \(self.reservas[0].nombre_usuario) ha reservado \(self.reservas[0].numero_habitaciones) habitaciones en el hotel \(self.reservas[0].nombre_hotel) el día \(self.reservas[0].fecha_reserva)"
+                        self.lbReserva2.text = " Usuario \(self.reservas[1].nombre_usuario) ha reservado \(self.reservas[1].numero_habitaciones) habitaciones en el hotel \(self.reservas[1].nombre_hotel) el día \(self.reservas[1].fecha_reserva)"
                     })
                 }catch {
                     
