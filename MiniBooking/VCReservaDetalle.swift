@@ -14,12 +14,40 @@ class VCReservaDetalle: UIViewController {
     @IBOutlet weak var imagenDetalle: UIImageView!
     @IBOutlet weak var webViewURL: UIWebView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    var reserva: Reserva = Reserva()
+    
+    //Definimos un radio de lo que veremos y una localizacion inicial
+    let regionRadius: CLLocationDistance = 100
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Cargamos la imagen
+        imagenDetalle.image = UIImage.init(named: reserva.nombre_imagen)
+        
+        //Cargamos el webView con la url
+        webViewURL.loadHTMLString("<html><body><center><h2>Esto es un WebView para el hotel<h2></center></body></html>", baseURL: nil)
+        
+        //Cargamos el mapa
+        let hotelLocation = CLLocation(latitude: reserva.latitud, longitude: reserva.longitud)
+        
+        centerMapOnLocation(location: hotelLocation)
+        //mostramos una chincheta
+        let artwork = Artwork(title: reserva.nombre_hotel,
+                              locationName: "Reservadas \(reserva.numero_habitaciones) habitaciones",
+                              discipline: "Sculpture",
+                              coordinate: CLLocationCoordinate2D(latitude: reserva.latitud, longitude: reserva.longitud))
+        mapView.addAnnotation(artwork)
+        
     }
 
+    func centerMapOnLocation (location: CLLocation){
+        //Centramos el mapa según unas coordenadas y una distancia de radio de lo que veremos
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

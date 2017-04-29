@@ -14,6 +14,8 @@ class Reserva: NSObject {
     var numero_habitaciones: Int
     var fecha_reserva: String
     var nombre_imagen: String
+    var latitud: Double
+    var longitud: Double
     
     override init() {
         self.nombre_hotel=""
@@ -21,6 +23,8 @@ class Reserva: NSObject {
         self.numero_habitaciones=0
         self.fecha_reserva=""
         self.nombre_imagen=""
+        self.latitud=0
+        self.longitud=0
     }
     
     init(json: [String: Any]) {
@@ -29,5 +33,7 @@ class Reserva: NSObject {
         self.numero_habitaciones = Int((json["numero_habitaciones"] as? String)!)!
         self.fecha_reserva = (json["fecha_reserva"] as? String)!
         self.nombre_imagen = (json["nombre_imagen"] as? String)!
+        self.latitud = Double((json["latitud"] as? String)!)!
+        self.longitud = Double((json["longitud"] as? String)!)!
     }
 }

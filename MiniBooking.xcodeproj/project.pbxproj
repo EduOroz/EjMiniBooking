@@ -19,6 +19,7 @@
 		B6489BA91EB1FDD400836060 /* VCReservaDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */; };
 		B6489BAB1EB1FDF500836060 /* VCFormularioReserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */; };
 		D27B7D1A1EB4914400E4EE9F /* Reserva.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B7D191EB4914400E4EE9F /* Reserva.swift */; };
+		D27B7D1C1EB4B32500E4EE9F /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B7D1B1EB4B32500E4EE9F /* Artwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCReservaDetalle.swift; sourceTree = "<group>"; };
 		B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCFormularioReserva.swift; sourceTree = "<group>"; };
 		D27B7D191EB4914400E4EE9F /* Reserva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reserva.swift; sourceTree = "<group>"; };
+		D27B7D1B1EB4B32500E4EE9F /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				B6489B941EB1FCCF00836060 /* ViewController.swift */,
 				B6489B961EB1FCCF00836060 /* Main.storyboard */,
 				B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */,
+				D27B7D1B1EB4B32500E4EE9F /* Artwork.swift */,
 				B6489BAA1EB1FDF400836060 /* VCFormularioReserva.swift */,
 				B6268D831EB361EE00BA094D /* Configuracion.plist */,
 				B6489BA61EB1FD9800836060 /* TVCCatalogo.swift */,
@@ -165,6 +168,7 @@
 				B6489B931EB1FCCF00836060 /* AppDelegate.swift in Sources */,
 				B6489BA51EB1FD6800836060 /* TVCMisReservas.swift in Sources */,
 				B6489BA71EB1FD9800836060 /* TVCCatalogo.swift in Sources */,
+				D27B7D1C1EB4B32500E4EE9F /* Artwork.swift in Sources */,
 				B6268D801EB31BD400BA094D /* Hotel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

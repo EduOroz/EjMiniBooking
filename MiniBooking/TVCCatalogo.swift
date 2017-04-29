@@ -96,7 +96,7 @@ class TVCCatalogo: UITableViewController {
         cell.imageView?.image = UIImage.init(named: hoteles[indexPath.section].nombre_imagen)
         
         if (hoteles[indexPath.section].habitaciones_libres==0) {
-            cell.detailTextLabel?.text = "No Habitaciones libres!!"
+            cell.detailTextLabel?.text = "¡¡No hay habitaciones libres!!"
         } else {
             cell.detailTextLabel?.text = "Habitaciones libres: \(hoteles[indexPath.section].habitaciones_libres)"
         }

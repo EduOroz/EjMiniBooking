@@ -92,10 +92,16 @@ class TVCMisReservas: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellMisReservas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = reservas[indexPath.row].nombre_hotel
-        
+        cell.textLabel?.text = reservas[indexPath.section].nombre_hotel
+        cell.imageView?.image = UIImage.init(named: reservas[indexPath.section].nombre_imagen)
+        cell.detailTextLabel?.text = "fecha: \(reservas[indexPath.section].fecha_reserva), num. habitaciones: \(reservas[indexPath.section].numero_habitaciones) "
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        reserva = reservas[indexPath.section]
+        performSegue(withIdentifier: "SegueFromMisReservasToDetalle", sender: nil)
     }
     
 
@@ -134,14 +140,19 @@ class TVCMisReservas: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier=="SegueFromMisReservasToDetalle" {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            let controller = segue.destination as! VCReservaDetalle
+        // Pass the selected object to the new view controller
+            controller.reserva = self.reserva
+        }
     }
-    */
+    
 
 }
