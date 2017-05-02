@@ -75,6 +75,8 @@ class VCFormularioReserva: UIViewController {
                     if string=="1" {
                         print("Registro insertado en la BD")
                         self.mostrarAlertaInicio(titulo: "Reserva realizada", texto: "Se ha realizado la reserva solicitada")
+                    } else if string == "33" {
+                        self.mostrarAlerta(titulo: "No hay habitaciones libres", texto: "Lo sentimos no hay habitaciones libres en el hotel solicitado")
                     } else {
                         print("No se ha podido realizar la reserva, error sql \(String(describing: string))")
                     }

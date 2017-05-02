@@ -27,7 +27,7 @@ class VCReservaDetalle: UIViewController {
         imagenDetalle.image = UIImage.init(named: reserva.nombre_imagen)
         
         //Cargamos el webView con la url
-        webViewURL.loadHTMLString("<html><body><center><h2>Esto es un WebView para el hotel<h2></center></body></html>", baseURL: nil)
+        webViewURL.loadHTMLString("<html><body><p><bold>   URL: </bold><a>https://www.\(reserva.nombre_hotel).com/</a></p></body></html>", baseURL: nil)
         
         //Cargamos el mapa
         let hotelLocation = CLLocation(latitude: reserva.latitud, longitude: reserva.longitud)
@@ -53,15 +53,22 @@ class VCReservaDetalle: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onClickCondicionesLegales(_ sender: UIButton) {
+        performSegue(withIdentifier: "SegueToVerPDF", sender: nil)
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SegueToVerPDF"{
+        // Pass the selected object to the new view 
+            let controller = segue.destination as! VCverPDF
+            controller.nombrePdfRecibido = "proc_requisitos_legales_otros_requisitos"
+        }
     }
-    */
+    
 
 }

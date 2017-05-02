@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B6268D801EB31BD400BA094D /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6268D7F1EB31BD300BA094D /* Hotel.swift */; };
 		B6268D841EB361EE00BA094D /* Configuracion.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6268D831EB361EE00BA094D /* Configuracion.plist */; };
+		B632FC7A1EB86AC7008FA8DC /* VCverPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632FC791EB86AC7008FA8DC /* VCverPDF.swift */; };
+		B632FC7C1EB86EC6008FA8DC /* PDF in Resources */ = {isa = PBXBuildFile; fileRef = B632FC7B1EB86EC6008FA8DC /* PDF */; };
 		B6489B931EB1FCCF00836060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489B921EB1FCCF00836060 /* AppDelegate.swift */; };
 		B6489B951EB1FCCF00836060 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6489B941EB1FCCF00836060 /* ViewController.swift */; };
 		B6489B981EB1FCCF00836060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6489B961EB1FCCF00836060 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		B6268D7F1EB31BD300BA094D /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		B6268D831EB361EE00BA094D /* Configuracion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuracion.plist; sourceTree = "<group>"; };
+		B632FC791EB86AC7008FA8DC /* VCverPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCverPDF.swift; path = ../VCverPDF.swift; sourceTree = "<group>"; };
+		B632FC7B1EB86EC6008FA8DC /* PDF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PDF; sourceTree = "<group>"; };
 		B6489B8F1EB1FCCF00836060 /* MiniBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6489B921EB1FCCF00836060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6489B941EB1FCCF00836060 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				B6489B921EB1FCCF00836060 /* AppDelegate.swift */,
+				B632FC7B1EB86EC6008FA8DC /* PDF */,
 				B6489B941EB1FCCF00836060 /* ViewController.swift */,
+				B632FC791EB86AC7008FA8DC /* VCverPDF.swift */,
 				B6489B961EB1FCCF00836060 /* Main.storyboard */,
 				B6489BA81EB1FDD400836060 /* VCReservaDetalle.swift */,
 				D27B7D1B1EB4B32500E4EE9F /* Artwork.swift */,
@@ -149,6 +155,7 @@
 			files = (
 				B6268D841EB361EE00BA094D /* Configuracion.plist in Resources */,
 				B6489B9D1EB1FCCF00836060 /* LaunchScreen.storyboard in Resources */,
+				B632FC7C1EB86EC6008FA8DC /* PDF in Resources */,
 				B6489B9A1EB1FCCF00836060 /* Assets.xcassets in Resources */,
 				B6489B981EB1FCCF00836060 /* Main.storyboard in Resources */,
 			);
@@ -162,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D27B7D1A1EB4914400E4EE9F /* Reserva.swift in Sources */,
+				B632FC7A1EB86AC7008FA8DC /* VCverPDF.swift in Sources */,
 				B6489B951EB1FCCF00836060 /* ViewController.swift in Sources */,
 				B6489BAB1EB1FDF500836060 /* VCFormularioReserva.swift in Sources */,
 				B6489BA91EB1FDD400836060 /* VCReservaDetalle.swift in Sources */,

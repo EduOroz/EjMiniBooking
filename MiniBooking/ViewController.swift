@@ -55,8 +55,8 @@ class ViewController: UIViewController {
                     }
                     
                     DispatchQueue.main.sync(execute: {
-                        self.lbReserva1.text = " Usuario \(self.reservas[0].nombre_usuario) ha reservado \(self.reservas[0].numero_habitaciones) habitaciones en el hotel \(self.reservas[0].nombre_hotel) el día \(self.reservas[0].fecha_reserva)"
-                        self.lbReserva2.text = " Usuario \(self.reservas[1].nombre_usuario) ha reservado \(self.reservas[1].numero_habitaciones) habitaciones en el hotel \(self.reservas[1].nombre_hotel) el día \(self.reservas[1].fecha_reserva)"
+                        self.lbReserva1.text = " \(self.reservas[0].nombre_usuario) ha reservado \(self.reservas[0].numero_habitaciones) habitaciones en el hotel \(self.reservas[0].nombre_hotel) el día \(self.reservas[0].fecha_reserva)"
+                        self.lbReserva2.text = " \(self.reservas[1].nombre_usuario) ha reservado \(self.reservas[1].numero_habitaciones) habitaciones en el hotel \(self.reservas[1].nombre_hotel) el día \(self.reservas[1].fecha_reserva)"
                     })
                 }catch {
                     
