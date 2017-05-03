@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VCFormularioReserva: UIViewController {
+class VCFormularioReserva: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var lbNombre_hotel: UILabel!
     @IBOutlet weak var tfFecha: UITextField!
@@ -17,14 +17,62 @@ class VCFormularioReserva: UIViewController {
     var hotel: Hotel = Hotel()
     var usuario: String = ""
     
+    var placeholderLabel : UILabel!
+    var placeholderLabelHab : UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         lbNombre_hotel.text = hotel.nombre
+        
+        //Con esta función al hacer click fuera de los textos con el teclado activo lo ocultamos
         self.hideKeyboardWhenTappedAround()
+        
+        //Vamos a añadir un texto de ayuda a los text Field
+        tfFecha.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Date Format yyyy-mm-ddVCMapView"
+        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (tfFecha.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        tfFecha.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (tfFecha.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !tfFecha.text!.isEmpty
+        
+        tfNHabitaciones.delegate = self
+        placeholderLabelHab = UILabel()
+        placeholderLabelHab.text = "Max \(hotel.habitaciones_libres) habitaciones"
+        placeholderLabelHab.font = UIFont.italicSystemFont(ofSize: (tfNHabitaciones.font?.pointSize)!)
+        placeholderLabelHab.sizeToFit()
+        tfNHabitaciones.addSubview(placeholderLabelHab)
+        placeholderLabelHab.frame.origin = CGPoint(x: 5, y: (tfNHabitaciones.font?.pointSize)! / 2)
+        placeholderLabelHab.textColor = UIColor.lightGray
+        placeholderLabelHab.isHidden = !tfNHabitaciones.text!.isEmpty
+        
     }
 
+    //Con estas funciones controlaremos que aparezca o no el texto de ayuda
+    @IBAction func editingTFfecha(_ sender: UITextField) {
+        placeholderLabel.text = ""
+            }
+    
+    @IBAction func editingEndTFfecha(_ sender: UITextField) {
+        if tfFecha.text=="" {
+            placeholderLabel.text = "Date Format yyyy-mm-dd"
+        } else {placeholderLabel.text = ""}
+    }
+    
+    @IBAction func editingTFhabitaciones(_ sender: UITextField) {
+        placeholderLabelHab.text=""
+    }
+    
+    @IBAction func editingEndTFhabitaciones(_ sender: UITextField) {
+        if tfNHabitaciones.text=="" {
+            placeholderLabelHab.text = "Max \(hotel.habitaciones_libres) habitaciones"
+        } else {placeholderLabelHab.text = ""}
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,6 +107,7 @@ class VCFormularioReserva: UIViewController {
     func realizarReserva(){
         
         //Falta que en el php se controle que nadie nos ha quitado una habitación en el último momento y controlar ese error devuelto por el php con un código concreto
+        print("Realizando la reserva")
         
         let urlCompleto = "http://minionsdesapps.esy.es/apps/insertReserva.php?id_hotel=\(hotel.id)&fecha=\(tfFecha.text!)&habitaciones=\(tfNHabitaciones.text!)&usuario=\(usuario)"
         print(urlCompleto)
